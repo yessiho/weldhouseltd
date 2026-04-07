@@ -2,6 +2,9 @@
 
 import Link from "next/link";
 import { ArrowRight, Shield, CheckCircle } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = { title: "Design & QA Plan" };
 
 export default function DesignPage() {
   return (
@@ -19,7 +22,7 @@ export default function DesignPage() {
           <span className="accent-line" />
           <h1 style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)", marginBottom: "1rem" }}>Design &amp; QA Plan</h1>
           <p style={{ maxWidth: "600px", fontSize: "1.05rem", color: "var(--text-secondary)", lineHeight: 1.8 }}>
-            All design work packages will be executed to international oil industry standards, independently verified by globally recognized Third-Party Approvers and endorsed by International Oil Companies operating in Nigeria.
+            All design work packages will be executed to international oil industry standards, independently verified by globally recognised Third-Party Approvers and endorsed by International Oil Companies operating in Nigeria.
           </p>
         </div>
       </section>
@@ -34,9 +37,9 @@ export default function DesignPage() {
               <span className="accent-line" />
               <h2 style={{ marginBottom: "1.5rem" }}>How the Yard Will Be Designed</h2>
               {[
-                { title: "Design Company on Standby", desc: "A South Korean design company is on standby to design the Fabrication Yard in accordance with International Oil Industry Standards." },
+                { title: "Design Company on Standby", desc: "An internationally experienced design company is on standby to design the Fabrication Yard in accordance with International Oil Industry Standards." },
                 { title: "Milestone-Based Payment", desc: "As design works progress, payment for design milestones completed will be upon certification by an International Third-Party Approver (TPA)." },
-                { title: "Third-Party Approval", desc: "All Design Packages will be approved by an international Third-Party Approver to confirm that designs have met global oil industry standards." },
+                { title: "Third-Party Approval", desc: "All Design Packages will be approved by an internationally recognised Third-Party Approver to confirm that designs have met global oil industry standards." },
                 { title: "IOC Endorsement", desc: "All design packages for the Yard will be endorsed by International Oil Companies (IOCs) in Nigeria as meeting their basic specifications." },
               ].map((item, i) => (
                 <div key={i} style={{ display: "flex", gap: "1rem", marginBottom: "1.5rem" }}>
@@ -49,31 +52,36 @@ export default function DesignPage() {
               ))}
             </div>
 
-            {/* TPA Cards */}
+            {/* TPA section — names removed */}
             <div>
               <span className="section-eyebrow">Third-Party Approvers</span>
               <span className="accent-line" />
-              <h2 style={{ marginBottom: "1.5rem" }}>International Verification Bodies</h2>
+              <h2 style={{ marginBottom: "1.5rem" }}>Independent Verification</h2>
               <p style={{ fontSize: "0.9rem", color: "var(--text-secondary)", marginBottom: "2rem" }}>
-                The TPA will be selected from the following internationally recognised bodies — all of which have been operating in the Nigerian Oil &amp; Gas Industry with well-established standards.
+                An internationally recognised Third-Party Approver will be engaged to independently review and certify all design milestones as conforming to international oil industry standards. These bodies have extensive experience operating in the Nigerian Oil &amp; Gas industry.
               </p>
 
-              {[
-                { name: "Lloyd's Register", location: "London, United Kingdom", desc: "One of the world's leading providers of classification, compliance and consultancy services to the marine and offshore industries.", abbr: "LR" },
-                { name: "Bureau Veritas", location: "Paris, France", desc: "A world leader in testing, inspection and certification services with extensive experience in the Nigerian oil and gas sector.", abbr: "BV" },
-                { name: "DNV", location: "Oslo, Norway", desc: "An international accredited registrar and classification society headquartered in Norway with deep expertise in offshore fabrication quality assurance.", abbr: "DNV" },
-              ].map((tpa) => (
-                <div key={tpa.name} style={{ background: "var(--bg-card)", border: "1px solid var(--border-green)", borderLeft: "4px solid var(--green)", padding: "1.5rem", marginBottom: "1rem", display: "flex", gap: "1.25rem", alignItems: "flex-start" }}>
-                  <div style={{ width: "48px", height: "48px", background: "linear-gradient(135deg, var(--green-dark), var(--green))", borderRadius: "4px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                    <span style={{ fontFamily: "var(--font-display)", fontSize: "0.75rem", color: "#fff", letterSpacing: "0.05em" }}>{tpa.abbr}</span>
+              <div style={{ background: "var(--bg-card)", border: "1px solid var(--border-green)", borderTop: "3px solid var(--orange)", padding: "2rem", borderRadius: "3px", marginBottom: "1.5rem" }}>
+                <div style={{ fontFamily: "var(--font-condensed)", fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--orange)", marginBottom: "1rem" }}>TPA Responsibilities</div>
+                {[
+                  "Review and approve each design work package upon completion",
+                  "Confirm all design milestones meet international oil industry standards",
+                  "Certify milestone completion to trigger milestone payments",
+                  "Provide independent assurance to investors and IOC partners",
+                ].map((item, i) => (
+                  <div key={i} style={{ display: "flex", gap: "0.75rem", marginBottom: "0.75rem" }}>
+                    <CheckCircle size={15} color="var(--green-light)" style={{ flexShrink: 0, marginTop: "2px" }} />
+                    <span style={{ fontSize: "0.85rem", color: "var(--text-secondary)", lineHeight: 1.6 }}>{item}</span>
                   </div>
-                  <div>
-                    <div style={{ fontFamily: "var(--font-display)", fontSize: "1.1rem", color: "var(--text-primary)", letterSpacing: "0.03em" }}>{tpa.name}</div>
-                    <div style={{ fontFamily: "var(--font-condensed)", fontSize: "0.68rem", color: "var(--orange)", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "0.4rem" }}>{tpa.location}</div>
-                    <p style={{ fontSize: "0.82rem", color: "var(--text-muted)", margin: 0, lineHeight: 1.6 }}>{tpa.desc}</p>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
+
+              <div style={{ background: "var(--bg-card)", border: "1px solid var(--border-green)", borderLeft: "4px solid var(--green)", padding: "1.5rem", borderRadius: "3px" }}>
+                <div style={{ fontFamily: "var(--font-condensed)", fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--green-light)", marginBottom: "0.5rem" }}>Selection Criteria</div>
+                <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", margin: 0, lineHeight: 1.7 }}>
+                  The selected TPA will be an internationally accredited body with a proven track record in the Nigerian Oil &amp; Gas industry, whose standards and certifications are recognised and accepted by International Oil Companies operating in Nigeria.
+                </p>
+              </div>
             </div>
 
           </div>
@@ -88,13 +96,12 @@ export default function DesignPage() {
             <span className="accent-line-center" />
             <h2 style={{ marginTop: "0.5rem" }}>Yard Construction Plan</h2>
           </div>
-
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.5rem" }}>
             {[
               { icon: <Shield size={20} color="var(--orange)" />, title: "Design-Led Construction", desc: "The Design Company will be responsible for ensuring construction is executed in strict accordance with the Detailed Design deliverables and Detailed Construction Plan." },
-              { icon: <CheckCircle size={20} color="var(--green-light)" />, title: "Nigerian Workforce", desc: "Experienced Engineers and skilled operators exist in Nigeria to construct the Fabrication Yard. Over 1,000 competent personnel have already been identified in-country." },
+              { icon: <CheckCircle size={20} color="var(--green-light)" />, title: "Nigerian Workforce", desc: "Experienced Engineers and skilled operators exist in Nigeria to construct the Fabrication Yard. Over 1,000 competent personnel have been identified in-country." },
               { icon: <Shield size={20} color="var(--orange)" />, title: "Materials Sourced", desc: "All procurement sources for Yard Construction materials have been identified. Sources to procure all yard construction equipment have also been confirmed." },
-              { icon: <CheckCircle size={20} color="var(--green-light)" />, title: "40-Month Delivery", desc: "Current plan is to design and construct the Fabrication Yard within 40 months from funding commencement to full operational readiness." },
+              { icon: <CheckCircle size={20} color="var(--green-light)" />, title: "40-Month Delivery", desc: "The plan is to design and construct the Fabrication Yard within 40 months from funding commencement to full operational readiness." },
             ].map((item, i) => (
               <div key={i} style={{ background: "var(--bg-card)", border: "1px solid var(--border-green)", padding: "1.75rem", borderRadius: "3px" }}>
                 <div style={{ marginBottom: "1rem" }}>{item.icon}</div>
@@ -121,7 +128,7 @@ export default function DesignPage() {
                 The Partner has fabricated and installed functional new FPSOs in Nigerian offshore oilfields, thus making the partner a recognised and acceptable offshore fabricator in the Nigerian Oil &amp; Gas industry.
               </p>
               <p style={{ fontSize: "0.95rem", margin: 0 }}>
-                This partnership approach ensures that from Day 1 of operations, the WeldHouse Fabrication Yard will be run by an organisation with a proven track record in delivering major FPSO projects in Nigeria.
+                This partnership approach ensures that from Day 1 of operations, the WeldHouse Fabrication Yard will be operated by an organisation with a proven track record in delivering major FPSO projects in Nigeria.
               </p>
             </div>
           </div>

@@ -1,11 +1,13 @@
+// components/home/KeyStats.tsx
+
 export default function KeyStats() {
   const stats = [
     { value: "$450M",  label: "Total Funding Required",  description: "Full project cost to design and construct the fabrication yard over 40 months.", icon: "💰" },
-    { value: "$1.4B",  label: "Net Present Value",        description: "Independent NPV calculated by Deloitte's financial model for the venture.", icon: "📈" },
-    { value: "54.8%",  label: "Internal Rate of Return",  description: "Exceptional IRR confirming the project as highly profitable and feasible.", icon: "🎯" },
-    { value: "5 Years",label: "Payback Period",           description: "Full return of investment within 5 years from commencement of operations.", icon: "⏱️" },
-    { value: "$2.4B+", label: "Year 5 Revenue",           description: "First year of executing FPSO fabrication contracts generates US$2,386M.", icon: "🏭" },
-    { value: "20+",    label: "Contracts On Standby",     description: "Offshore fabrication contracts averaging US$5B each waiting for the yard.", icon: "📋" },
+    { value: "49 Ha",  label: "Land Acquired",            description: "49 Hectares of land already acquired, surveyed and titled in Akwa Ibom State.", icon: "📍" },
+    { value: "40 Mths",label: "Build Timeline",           description: "Full design and construction of the fabrication yard within 40 months of funding.", icon: "🏗️" },
+    { value: "20+",    label: "Contracts On Standby",     description: "Offshore fabrication contracts averaging US$5B each are waiting for this yard.", icon: "📋" },
+    { value: "$4–6B",  label: "Avg Contract Value",       description: "Each FPSO or offshore platform fabrication contract averages US$4 to 6 Billion.", icon: "📈" },
+    { value: "95",     label: "Oil Blocks Undeveloped",   description: "95 offshore oil blocks in Nigeria are yet to be developed — all requiring fabrication.", icon: "🛢️" },
   ];
 
   return (
@@ -14,11 +16,11 @@ export default function KeyStats() {
 
       <div className="container">
         <div style={{ textAlign: "center", marginBottom: "4rem" }}>
-          <span className="section-eyebrow">Deloitte Verified Financial Model</span>
+          <span className="section-eyebrow">Project Overview</span>
           <span className="accent-line-center" />
           <h2 style={{ marginTop: "0.5rem" }}>Project at a Glance</h2>
           <p style={{ maxWidth: "520px", margin: "1rem auto 0", fontSize: "0.95rem" }}>
-            An independent Business Plan and Financial Model developed by Deloitte confirms the project as highly profitable and commercially feasible.
+            The WeldHouse Fabrication Yard is a US$450 Million development that will establish Nigeria&apos;s first modern large-scale Oil &amp; Gas Fabrication Yard.
           </p>
         </div>
 

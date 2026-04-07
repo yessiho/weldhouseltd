@@ -3,13 +3,17 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { BUDGET_BREAKDOWN } from "@/lib/constants";
-import { timeline } from "@/data/timeline";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = { title: "Project Scope & Schedule" };
 
 export default function ScopePage() {
+  const total = BUDGET_BREAKDOWN.reduce((s, i) => s + i.cost, 0);
+
   return (
     <main style={{ paddingTop: "76px" }}>
 
-      <section style={{ background: "var(--bg-navbar)", borderBottom: "1px solid var(--border-green)", padding: "5rem 0 4rem", position: "relative", overflow: "hidden" }}>
+      <section style={{ background: "var(--bg-navbar)", borderBottom: "1px solid var(--border-green)", padding: "5rem 0 4rem", position: "relative" }}>
         <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: "linear-gradient(90deg, var(--green), var(--orange), var(--green))" }} />
         <div className="container" style={{ position: "relative", zIndex: 10 }}>
           <div style={{ display: "flex", gap: "0.5rem", alignItems: "center", marginBottom: "1rem" }}>
@@ -21,70 +25,107 @@ export default function ScopePage() {
           <span className="accent-line" />
           <h1 style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)", marginBottom: "1rem" }}>Scope &amp; Schedule</h1>
           <p style={{ maxWidth: "600px", fontSize: "1.05rem", color: "var(--text-secondary)", lineHeight: 1.8 }}>
-            The full 40-month project schedule spanning engineering, site works, construction, community engagement, project management and insurance.
+            The full project spans 40 months from funding commencement to operational readiness — covering engineering, site works, construction, community engagement and project management.
           </p>
         </div>
       </section>
 
-      {/* ── GANTT-STYLE TIMELINE ── */}
+      {/* ── OVERVIEW STATS ── */}
+      <section className="section-sm" style={{ background: "var(--bg-secondary)", borderBottom: "1px solid var(--border-green)" }}>
+        <div className="container">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "1px", background: "var(--border-green)", border: "1px solid var(--border-green)" }}>
+            {[
+              { value: "$450M",  label: "Total Budget",    sub: "Full project cost" },
+              { value: "40",     label: "Months",          sub: "Design to completion" },
+              { value: "3",      label: "Major Phases",    sub: "Engineering, Site, Construction" },
+              { value: "49 Ha",  label: "Site Area",       sub: "Acquired land" },
+            ].map((s, i) => (
+              <div key={i} style={{ padding: "1.5rem 1.25rem", background: "var(--bg-card)" }}>
+                <div className="stat-value" style={{ fontSize: "2rem" }}>{s.value}</div>
+                <div style={{ fontFamily: "var(--font-condensed)", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-primary)", marginTop: "0.2rem" }}>{s.label}</div>
+                <div style={{ fontSize: "0.72rem", color: "var(--text-muted)", marginTop: "0.1rem" }}>{s.sub}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── PHASE CARDS ── */}
       <section className="section" style={{ background: "var(--bg-primary)" }}>
         <div className="container">
           <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-            <span className="section-eyebrow">40-Month Programme</span>
+            <span className="section-eyebrow">Project Phases</span>
             <span className="accent-line-center" />
-            <h2 style={{ marginTop: "0.5rem" }}>Project Timeline</h2>
+            <h2 style={{ marginTop: "0.5rem" }}>40-Month Development Programme</h2>
+            <p style={{ maxWidth: "520px", margin: "1rem auto 0", fontSize: "0.95rem" }}>
+              The project is structured across three primary development phases, supported by ongoing project management, community engagement and insurance activities throughout.
+            </p>
           </div>
 
-          <div style={{ border: "1px solid var(--border-green)", overflow: "hidden", marginBottom: "3rem" }}>
-            {/* Header */}
-            <div style={{ background: "var(--bg-navbar)", padding: "0.75rem 1.5rem", display: "grid", gridTemplateColumns: "200px 1fr 120px", gap: "1rem", borderBottom: "1px solid var(--border-accent)" }}>
-              <span style={{ fontFamily: "var(--font-condensed)", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-muted)" }}>Phase</span>
-              <span style={{ fontFamily: "var(--font-condensed)", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-muted)" }}>Timeline (Months 1–40)</span>
-              <span style={{ fontFamily: "var(--font-condensed)", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-muted)", textAlign: "right" }}>Cost (US$M)</span>
-            </div>
-
-            {timeline.map((item, i) => {
-              const barLeft = ((item.start - 1) / 40) * 100;
-              const barWidth = ((item.end - item.start + 1) / 40) * 100;
-              return (
-                <div key={i} style={{ padding: "1rem 1.5rem", display: "grid", gridTemplateColumns: "200px 1fr 120px", gap: "1rem", alignItems: "center", borderBottom: i < timeline.length - 1 ? "1px solid var(--border-green)" : "none", background: i % 2 === 0 ? "var(--bg-card)" : "transparent" }}>
-                  <div>
-                    <div style={{ fontFamily: "var(--font-condensed)", fontSize: "0.82rem", fontWeight: 600, color: "var(--text-primary)" }}>{item.phase}</div>
-                    <div style={{ fontFamily: "var(--font-condensed)", fontSize: "0.68rem", color: "var(--text-muted)", marginTop: "2px" }}>Mth {item.start}–{item.end}</div>
-                  </div>
-                  <div style={{ position: "relative", height: "28px", background: "rgba(74,124,47,0.1)", borderRadius: "2px" }}>
-                    <div style={{ position: "absolute", left: `${barLeft}%`, width: `${barWidth}%`, height: "100%", background: item.color, borderRadius: "2px", opacity: 0.85 }} />
-                  </div>
-                  <div style={{ textAlign: "right", fontFamily: "var(--font-display)", fontSize: "1.1rem", color: "var(--orange)" }}>${item.cost}M</div>
-                </div>
-              );
-            })}
-
-            {/* Total */}
-            <div style={{ padding: "1rem 1.5rem", display: "grid", gridTemplateColumns: "200px 1fr 120px", gap: "1rem", alignItems: "center", background: "var(--bg-navbar)", borderTop: "2px solid var(--border-accent)" }}>
-              <div style={{ fontFamily: "var(--font-condensed)", fontSize: "0.82rem", fontWeight: 700, color: "var(--orange)", letterSpacing: "0.1em", textTransform: "uppercase" }}>Total</div>
-              <div />
-              <div style={{ textAlign: "right", fontFamily: "var(--font-display)", fontSize: "1.4rem", color: "var(--orange)" }}>$450M</div>
-            </div>
-          </div>
-
-          {/* Phase detail cards */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem", marginBottom: "3rem" }}>
             {[
-              { no: "01", phase: "Engineering", mths: "Mth 1–14", cost: "$17M", color: "var(--orange)", details: ["Full yard design to international oil industry standards", "Third-Party Approver review at each milestone", "IOC endorsement of all design packages", "South Korean design company on standby"] },
-              { no: "02", phase: "Early Site Works", mths: "Mth 12–21", cost: "$117M", color: "var(--gold)", details: ["Site preparation and clearing", "Marine infrastructure and quayside initial works", "Ground improvement and foundation works", "Utilities and access road construction"] },
-              { no: "03", phase: "Yard Construction", mths: "Mth 14–40", cost: "$276M", color: "var(--green-light)", details: ["Main fabrication workshops and bays", "Heavy lift crane installation", "Quayside completion and marine facilities", "All equipment installation and commissioning"] },
-              { no: "04", phase: "Support Activities", mths: "Mth 1–40", cost: "$40M", color: "var(--steel-light)", details: ["Community projects — roads, schools, water", "Project management and governance", "Consultants fees and finance charges", "Project insurance policies (Mth 6–40)"] },
+              {
+                no: "01",
+                phase: "Engineering",
+                duration: "14 months",
+                cost: "$17M",
+                color: "var(--orange)",
+                details: [
+                  "Full yard design to international oil industry standards",
+                  "Independent third-party review at each milestone",
+                  "IOC endorsement of all design packages",
+                  "Detailed construction plan development",
+                ],
+              },
+              {
+                no: "02",
+                phase: "Early Site Works",
+                duration: "8 months",
+                cost: "$117M",
+                color: "var(--gold)",
+                details: [
+                  "Site preparation and clearing",
+                  "Marine infrastructure and initial quayside works",
+                  "Ground improvement and foundation works",
+                  "Utilities and access road construction",
+                ],
+              },
+              {
+                no: "03",
+                phase: "Yard Construction",
+                duration: "26 months",
+                cost: "$276M",
+                color: "var(--green-light)",
+                details: [
+                  "Main fabrication workshops and bays",
+                  "Heavy lift crane installation",
+                  "Quayside completion and marine facilities",
+                  "All equipment installation and commissioning",
+                ],
+              },
+              {
+                no: "04",
+                phase: "Support Activities",
+                duration: "Throughout (40 months)",
+                cost: "$40M",
+                color: "var(--steel-light)",
+                details: [
+                  "Community projects — roads, schools, water supply",
+                  "Project management and governance",
+                  "Consultants fees and finance charges",
+                  "Project insurance policies",
+                ],
+              },
             ].map((item) => (
               <div key={item.no} style={{ background: "var(--bg-card)", border: "1px solid var(--border-green)", borderTop: `3px solid ${item.color}`, padding: "1.75rem", borderRadius: "3px" }}>
-                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "1rem" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "1rem", flexWrap: "wrap", gap: "0.5rem" }}>
                   <div>
                     <div style={{ fontFamily: "var(--font-display)", fontSize: "2rem", color: item.color, lineHeight: 1 }}>{item.no}</div>
                     <div style={{ fontFamily: "var(--font-display)", fontSize: "1.2rem", color: "var(--text-primary)", letterSpacing: "0.03em" }}>{item.phase}</div>
                   </div>
                   <div style={{ textAlign: "right" }}>
                     <div style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", color: "var(--orange)" }}>{item.cost}</div>
-                    <div style={{ fontFamily: "var(--font-condensed)", fontSize: "0.68rem", color: "var(--text-muted)", letterSpacing: "0.1em" }}>{item.mths}</div>
+                    <div style={{ fontFamily: "var(--font-condensed)", fontSize: "0.68rem", color: "var(--text-muted)", letterSpacing: "0.1em" }}>{item.duration}</div>
                   </div>
                 </div>
                 <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0.5rem" }}>
@@ -96,6 +137,47 @@ export default function ScopePage() {
                 </ul>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── BUDGET TABLE ── */}
+      <section className="section" style={{ background: "var(--bg-secondary)", borderTop: "1px solid var(--border-green)" }}>
+        <div className="container">
+          <div style={{ textAlign: "center", marginBottom: "3rem" }}>
+            <span className="section-eyebrow">Budget Breakdown</span>
+            <span className="accent-line-center" />
+            <h2 style={{ marginTop: "0.5rem" }}>Use of US$450 Million</h2>
+          </div>
+
+          <div style={{ border: "1px solid var(--border-green)", overflow: "hidden" }}>
+            <table className="wh-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Project Scope</th>
+                  <th>Duration</th>
+                  <th style={{ textAlign: "right" }}>Cost (US$M)</th>
+                  <th style={{ textAlign: "right" }}>% of Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                {BUDGET_BREAKDOWN.map((item, i) => (
+                  <tr key={i}>
+                    <td style={{ color: "var(--text-muted)", fontFamily: "var(--font-condensed)" }}>{String(i + 1).padStart(2, "0")}</td>
+                    <td style={{ color: "var(--text-primary)", fontWeight: 500 }}>{item.scope}</td>
+                    <td style={{ fontFamily: "var(--font-condensed)", fontSize: "0.8rem" }}>{item.duration}</td>
+                    <td style={{ textAlign: "right", fontFamily: "var(--font-display)", fontSize: "1.1rem", color: "var(--orange)" }}>{item.cost.toFixed(2)}</td>
+                    <td style={{ textAlign: "right", color: "var(--text-muted)", fontSize: "0.82rem" }}>{((item.cost / total) * 100).toFixed(1)}%</td>
+                  </tr>
+                ))}
+                <tr className="total-row">
+                  <td colSpan={3} style={{ fontFamily: "var(--font-condensed)", fontWeight: 700, fontSize: "0.85rem", letterSpacing: "0.1em", textTransform: "uppercase" }}>Total Project Cost</td>
+                  <td style={{ textAlign: "right", fontFamily: "var(--font-display)", fontSize: "1.4rem" }}>{total.toFixed(2)}</td>
+                  <td style={{ textAlign: "right" }}>100%</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
