@@ -1,12 +1,14 @@
+// components/home/WhyNigeria.tsx
+
 import Link from "next/link";
 import { ArrowRight, CheckCircle } from "lucide-react";
 
 export default function WhyNigeria() {
   const reasons = [
     "The Nigerian Content Law (NCDMB Act) legally requires fabrication of all oil & gas facilities in-country",
-    "ExxonMobil's US$10B Owowo offshore oilfield on hold pending availability of an in-country fabrication yard",
-    "Shell Nigeria has tendered its Bonga South-West FPSO project ($4–6B) three times — cancelled each time for lack of a local yard",
-    "95 offshore oil blocks yet to be developed by Shell, Total, ExxonMobil, Chevron, Statoil and Agip",
+    "Multiple major offshore oilfield developments are on hold pending availability of an in-country fabrication yard",
+    "Several large-scale FPSO fabrication projects have been tendered and cancelled multiple times — solely due to lack of a local yard",
+    "95 offshore oil blocks in Nigeria are yet to be developed — all requiring in-country fabrication",
     "All littoral African countries issuing oil block licenses — expanding the addressable market beyond Nigeria",
     "WeldHouse yard located on naturally deep-water river — no expensive dredging required",
   ];
@@ -39,23 +41,32 @@ export default function WhyNigeria() {
             <Link href="/project" className="btn-primary">Learn About the Project <ArrowRight size={16} /></Link>
           </div>
 
+          {/* Right side — market opportunity cards without client names */}
           <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-            {[
-              { company: "ExxonMobil", project: "Owowo Offshore Oilfield", value: "US$10 Billion", status: "On Hold", reason: "No in-country fabrication yard with sufficient capacity to execute the project." },
-              { company: "Shell Nigeria", project: "Bonga South-West FPSO", value: "US$4–6 Billion", status: "Tender Cancelled ×3", reason: "Tendered three times — last cancelled December 2021. Re-tender planned for 2024." },
-            ].map((item) => (
-              <div key={item.company} style={{ background: "var(--bg-card)", border: "1px solid var(--border-green)", borderLeft: "4px solid var(--orange)", padding: "1.75rem" }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "0.75rem", flexWrap: "wrap", gap: "0.5rem" }}>
-                  <div>
-                    <div style={{ fontFamily: "var(--font-display)", fontSize: "1.2rem", color: "var(--text-primary)", letterSpacing: "0.05em" }}>{item.company}</div>
-                    <div style={{ fontFamily: "var(--font-condensed)", fontSize: "0.78rem", color: "var(--text-muted)", letterSpacing: "0.1em", textTransform: "uppercase" }}>{item.project}</div>
-                  </div>
-                  <span className="badge badge-orange">{item.status}</span>
+
+            <div style={{ background: "var(--bg-card)", border: "1px solid var(--border-green)", borderLeft: "4px solid var(--orange)", padding: "1.75rem" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "0.75rem", flexWrap: "wrap", gap: "0.5rem" }}>
+                <div>
+                  <div style={{ fontFamily: "var(--font-display)", fontSize: "1.2rem", color: "var(--text-primary)", letterSpacing: "0.05em" }}>Major Offshore Oilfield</div>
+                  <div style={{ fontFamily: "var(--font-condensed)", fontSize: "0.78rem", color: "var(--text-muted)", letterSpacing: "0.1em", textTransform: "uppercase" }}>Deep-Water Development</div>
                 </div>
-                <div className="stat-value" style={{ fontSize: "2rem", marginBottom: "0.5rem" }}>{item.value}</div>
-                <p style={{ fontSize: "0.82rem", color: "var(--text-muted)", margin: 0, lineHeight: 1.6 }}>{item.reason}</p>
+                <span className="badge badge-orange">On Hold</span>
               </div>
-            ))}
+              <div className="stat-value" style={{ fontSize: "2rem", marginBottom: "0.5rem" }}>US$10 Billion</div>
+              <p style={{ fontSize: "0.82rem", color: "var(--text-muted)", margin: 0, lineHeight: 1.6 }}>A major offshore oilfield development is on hold pending availability of an in-country fabrication yard with sufficient capacity to execute the project.</p>
+            </div>
+
+            <div style={{ background: "var(--bg-card)", border: "1px solid var(--border-green)", borderLeft: "4px solid var(--orange)", padding: "1.75rem" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "0.75rem", flexWrap: "wrap", gap: "0.5rem" }}>
+                <div>
+                  <div style={{ fontFamily: "var(--font-display)", fontSize: "1.2rem", color: "var(--text-primary)", letterSpacing: "0.05em" }}>Major FPSO Project</div>
+                  <div style={{ fontFamily: "var(--font-condensed)", fontSize: "0.78rem", color: "var(--text-muted)", letterSpacing: "0.1em", textTransform: "uppercase" }}>Floating Production & Storage</div>
+                </div>
+                <span className="badge badge-orange">Tender Cancelled ×3</span>
+              </div>
+              <div className="stat-value" style={{ fontSize: "2rem", marginBottom: "0.5rem" }}>US$4–6 Billion</div>
+              <p style={{ fontSize: "0.82rem", color: "var(--text-muted)", margin: 0, lineHeight: 1.6 }}>A major FPSO fabrication project has been tendered three times and cancelled each time — solely due to the absence of a capable in-country fabrication yard.</p>
+            </div>
 
             <div style={{ background: "linear-gradient(135deg, var(--green-dark), var(--green))", padding: "1.75rem", textAlign: "center", border: "1px solid var(--green-light)", position: "relative", overflow: "hidden" }}>
               <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: "linear-gradient(90deg, var(--orange), var(--orange-light), var(--orange))" }} />
@@ -63,8 +74,8 @@ export default function WhyNigeria() {
               <div style={{ fontFamily: "var(--font-display)", fontSize: "3.5rem", color: "#fff", lineHeight: 1 }}>$14–16B</div>
               <div style={{ fontFamily: "var(--font-condensed)", fontSize: "0.75rem", color: "rgba(255,255,255,0.8)", marginTop: "0.35rem", letterSpacing: "0.1em" }}>In Contracts Awaiting This Yard</div>
             </div>
-          </div>
 
+          </div>
         </div>
       </div>
     </section>

@@ -102,12 +102,12 @@ export default function DownloadPage() {
 
                 <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0.5rem", marginBottom: "2rem" }}>
                   {[
-                    "Deloitte Business Plan & Financial Model",
-                    "Akwa Ibom State land title documentation",
-                    "Survey Plan RS/AK/1/2013/45",
-                    "Certificate of Statutory Right of Occupancy",
+                    "Land title and survey documentation",
+                    "Akwa Ibom State Certificate of Occupancy",
                     "Community MOU documentation",
-                    "Partnership term sheet (upon NDA)",
+                    "Team profiles and CVs (under NDA)",
+                    "Financial documentation (under Hold Harmless Agreement)",
+                    "Partnership term sheet (upon NDA execution)",
                   ].map((item, i) => (
                     <li key={i} style={{ display: "flex", gap: "0.6rem", fontSize: "0.82rem", color: "var(--text-secondary)" }}>
                       <CheckCircle size={14} color="var(--green-light)" style={{ flexShrink: 0, marginTop: "2px" }} />

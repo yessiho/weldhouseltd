@@ -3,6 +3,9 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { BUDGET_BREAKDOWN } from "@/lib/constants";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = { title: "Project Overview" };
 
 export default function ProjectPage() {
   const total = BUDGET_BREAKDOWN.reduce((s, i) => s + i.cost, 0);
@@ -33,12 +36,12 @@ export default function ProjectPage() {
         <div className="container">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "1px", background: "var(--border-green)", border: "1px solid var(--border-green)" }}>
             {[
-              { value: "$450M",   label: "Total Cost",       sub: "Full project budget" },
-              { value: "40",      label: "Months",           sub: "Design to completion" },
-              { value: "49 Ha",   label: "Land Area",        sub: "Acquired & surveyed" },
-              { value: "700m",    label: "Site Dimension",   sub: "700m × 700m plot" },
-              { value: "8 NM",    label: "Ocean Access",     sub: "From Atlantic Ocean" },
-              { value: "2013",    label: "Land Survey",      sub: "Plan RS/AK/1/2013/45" },
+              { value: "$450M",  label: "Total Cost",      sub: "Full project budget" },
+              { value: "40",     label: "Months",          sub: "Design to completion" },
+              { value: "49 Ha",  label: "Land Area",       sub: "Acquired & surveyed" },
+              { value: "700m",   label: "Site Dimension",  sub: "700m × 700m plot" },
+              { value: "8 NM",   label: "Ocean Access",    sub: "From Atlantic Ocean" },
+              { value: "2013",   label: "Land Survey",     sub: "Plan RS/AK/1/2013/45" },
             ].map((s, i) => (
               <div key={i} style={{ padding: "1.5rem 1.25rem", background: "var(--bg-card)" }}>
                 <div className="stat-value" style={{ fontSize: "2rem" }}>{s.value}</div>
@@ -63,7 +66,7 @@ export default function ProjectPage() {
                 The overall project objective is to design and construct the first modern large-scale high tonnage Oil &amp; Gas Fabrication Yard in Nigeria. This Yard will be patronized by Oil &amp; Gas companies in Nigeria to enable them to comply with the Nigerian Content Law.
               </p>
               <p style={{ marginBottom: "1.25rem", fontSize: "0.95rem" }}>
-                Many Nigerian oilfield developments have been put on hold pending availability of a fabrication yard like ours. In particular, ExxonMobil is yet to develop its US$10 Billion Owowo offshore oilfield, and Shell Nigeria has cancelled its Bonga South-West FPSO tender three times — both for the same reason.
+                Multiple major Nigerian oilfield developments have been put on hold pending availability of a modern fabrication yard in-country. The WeldHouse Fabrication Yard will be the solution that unlocks these projects.
               </p>
               <p style={{ fontSize: "0.95rem" }}>
                 With 1,500+ deep-water oilfields available in Nigeria and other African countries, averaging US$5 billion per contract, the WeldHouse Fabrication Yard is positioned to capture decades of sustained work.
@@ -72,8 +75,8 @@ export default function ProjectPage() {
 
             <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
               {[
-                { phase: "Phase 1", title: "Engineering", duration: "14 months", detail: "Full design of the fabrication yard to international oil industry standards, approved by Third-Party Approvers and endorsed by IOCs." },
-                { phase: "Phase 2", title: "Early Site Works", duration: "8 months", detail: "Site preparation, ground works, marine infrastructure and initial civil works to prepare the 49-hectare site for main construction." },
+                { phase: "Phase 1", title: "Engineering",       duration: "14 months", detail: "Full design of the fabrication yard to international oil industry standards, approved by an independent Third-Party Approver and endorsed by IOCs." },
+                { phase: "Phase 2", title: "Early Site Works",  duration: "8 months",  detail: "Site preparation, ground works, marine infrastructure and initial civil works to prepare the 49-hectare site for main construction." },
                 { phase: "Phase 3", title: "Yard Construction", duration: "26 months", detail: "Full construction of all fabrication facilities, workshops, quayside, cranes, equipment installation and commissioning." },
               ].map((p) => (
                 <div key={p.phase} style={{ background: "var(--bg-card)", border: "1px solid var(--border-green)", borderLeft: "4px solid var(--orange)", padding: "1.5rem" }}>
@@ -108,7 +111,7 @@ export default function ProjectPage() {
                   <th>Project Scope</th>
                   <th>Schedule</th>
                   <th>Duration</th>
-                  <th style={{ textAlign: "right" }}>Cost (US$ M)</th>
+                  <th style={{ textAlign: "right" }}>Cost (US$M)</th>
                   <th style={{ textAlign: "right" }}>% of Total</th>
                 </tr>
               </thead>
@@ -145,17 +148,15 @@ export default function ProjectPage() {
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "1.5rem" }}>
             {[
-              { href: "/project/scope",    title: "Scope & Schedule",   desc: "Full project scope, timeline and phase breakdown across all 40 months." },
-              { href: "/project/design",   title: "Design & QA Plan",   desc: "Yard design approach, Third-Party Approver process and IOC endorsement." },
-              { href: "/project/location", title: "Site Location",       desc: "Detailed site location, survey plan and GPS coordinates on Cross River." },
+              { href: "/project/scope",    title: "Scope & Schedule",  desc: "Full project scope, phase breakdown and budget across all 40 months." },
+              { href: "/project/design",   title: "Design & QA Plan",  desc: "Yard design approach, Third-Party Approver process and IOC endorsement." },
+              { href: "/project/location", title: "Site Location",      desc: "Detailed site location, survey plan and GPS coordinates on Cross River." },
             ].map((item) => (
-              <Link key={item.href} href={item.href} style={{ background: "var(--bg-card)", border: "1px solid var(--border-green)", padding: "2rem", display: "block", transition: "border-color 0.2s ease", borderRadius: "3px" }}>
+              <Link key={item.href} href={item.href} style={{ background: "var(--bg-card)", border: "1px solid var(--border-green)", padding: "2rem", display: "block", borderRadius: "3px" }}>
                 <div style={{ width: "32px", height: "3px", background: "linear-gradient(90deg, var(--green), var(--orange))", marginBottom: "1.25rem" }} />
                 <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.3rem", color: "var(--text-primary)", letterSpacing: "0.03em", marginBottom: "0.75rem" }}>{item.title}</h3>
                 <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", lineHeight: 1.65, margin: "0 0 1.25rem" }}>{item.desc}</p>
-                <span style={{ fontFamily: "var(--font-condensed)", fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--orange)", display: "flex", alignItems: "center", gap: "0.4rem" }}>
-                  Explore <ArrowRight size={13} />
-                </span>
+                <span style={{ fontFamily: "var(--font-condensed)", fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--orange)", display: "flex", alignItems: "center", gap: "0.4rem" }}>Explore <ArrowRight size={13} /></span>
               </Link>
             ))}
           </div>
