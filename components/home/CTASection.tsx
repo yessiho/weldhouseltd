@@ -1,6 +1,8 @@
+// components/home/CTASection.tsx
+
 import Link from "next/link";
 import { ArrowRight, Mail } from "lucide-react";
-import { COMPANY, PROJECT } from "@/lib/constants";
+import { COMPANY } from "@/lib/constants";
 
 export default function CTASection() {
   return (
@@ -22,18 +24,18 @@ export default function CTASection() {
           </h2>
 
           <p style={{ fontSize: "1rem", color: "var(--text-secondary)", marginBottom: "1rem", lineHeight: 1.8 }}>
-            WeldHouse Limited is seeking {PROJECT.totalFunding} to develop Nigeria&apos;s first modern high tonnage Oil &amp; Gas Fabrication Yard. Partial funding is acceptable. Debt financing secured by a lien over the completed yard. Equity participation through shareholding also available.
+            WeldHouse Limited is seeking investment to develop Nigeria&apos;s first modern high tonnage Oil &amp; Gas Fabrication Yard. Partial funding is acceptable. Debt financing secured by a lien over the completed yard. Equity participation through shareholding also available.
           </p>
 
           <p style={{ fontSize: "0.9rem", color: "var(--text-muted)", marginBottom: "3rem" }}>
-            Contact: <strong style={{ color: "var(--orange)" }}>{COMPANY.contact}</strong>{" · "}{COMPANY.phone2}{" · "}{COMPANY.phone1}
+            Contact us for funding details: <strong style={{ color: "var(--orange)" }}>{COMPANY.email}</strong>{" · "}{COMPANY.phone2}{" · "}{COMPANY.phone1}
           </p>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "1px", background: "var(--border-accent)", border: "1px solid var(--border-accent)", marginBottom: "3rem" }}>
             {[
               { label: "Debt Finance", value: "Lien over completed Fabrication Yard as collateral" },
               { label: "Equity",       value: "Holding of shares in WeldHouse Limited" },
-              { label: "Partial OK",   value: "Part funding of the full US$450M is acceptable" },
+              { label: "Partial OK",   value: "Co-investment with multiple fund providers is possible" },
             ].map((item) => (
               <div key={item.label} style={{ background: "var(--bg-card)", padding: "1.5rem" }}>
                 <div style={{ fontFamily: "var(--font-condensed)", fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--orange)", marginBottom: "0.5rem" }}>{item.label}</div>

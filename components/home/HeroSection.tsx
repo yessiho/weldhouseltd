@@ -49,7 +49,7 @@ export default function HeroSection() {
               <Link href="/project" className="btn-secondary">View Project Details <ArrowRight size={16} /></Link>
             </div>
 
-            {/* Trust badges */}
+            {/* Trust badges — no funding amount */}
             <div style={{ display: "flex", alignItems: "center", gap: "1.5rem", animation: "fadeUp 0.7s 0.4s ease forwards", opacity: 0, flexWrap: "wrap" }}>
               {[
                 { label: "Founded",        value: "2008" },
@@ -72,9 +72,9 @@ export default function HeroSection() {
               <div style={{ width: "100%", height: "320px", background: "linear-gradient(135deg, #0D2B0A 0%, #1A4A12 40%, #0F3A0C 100%)", position: "relative", overflow: "hidden" }}>
                 <SafeImage src="/images/hero/fabrication-yard.jpg" alt="WeldHouse Fabrication Yard" style={{ objectFit: "cover", opacity: 0.7 }} />
                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%)", pointerEvents: "none" }} />
-                <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "0.75rem" }}>
-                  <div style={{ fontFamily: "var(--font-display)", fontSize: "1.8rem", color: "rgba(245,130,10,0.12)", letterSpacing: "0.1em" }}>FABRICATION YARD</div>
-                  <div style={{ fontFamily: "var(--font-condensed)", fontSize: "0.65rem", color: "rgba(255,255,255,0.25)", letterSpacing: "0.2em", textTransform: "uppercase" }}>Add photo → /public/images/hero/fabrication-yard.jpg</div>
+                <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "0.75rem", pointerEvents: "none" }}>
+                  <div style={{ fontFamily: "var(--font-display)", fontSize: "1.8rem", color: "rgba(245,130,10,0.1)", letterSpacing: "0.1em" }}>FABRICATION YARD</div>
+                  <div style={{ fontFamily: "var(--font-condensed)", fontSize: "0.6rem", color: "rgba(255,255,255,0.2)", letterSpacing: "0.2em", textTransform: "uppercase" }}>Add photo → /public/images/hero/fabrication-yard.jpg</div>
                 </div>
                 <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "1.25rem", background: "linear-gradient(to top, rgba(0,0,0,0.85), transparent)", pointerEvents: "none" }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
@@ -93,10 +93,10 @@ export default function HeroSection() {
 
               {/* Card 1 — FPSO */}
               <div style={{ borderRadius: "4px", overflow: "hidden", border: "1px solid var(--border-green)", background: "var(--bg-card)" }}>
-                <div style={{ height: "160px", background: "linear-gradient(135deg, #0A2810, #1E4A15)", position: "relative", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <div style={{ height: "160px", background: "linear-gradient(135deg, #0A2810, #1E4A15)", position: "relative", overflow: "hidden" }}>
                   <SafeImage src="/images/facilities/fpso.jpg" alt="FPSO Fabrication" style={{ objectFit: "cover", opacity: 0.6 }} />
                   <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(10,40,16,0.6), rgba(30,74,21,0.4))", pointerEvents: "none" }} />
-                  <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", pointerEvents: "none" }}>
                     <div style={{ fontFamily: "var(--font-display)", fontSize: "2rem", color: "rgba(245,130,10,0.1)", letterSpacing: "0.1em" }}>FPSO</div>
                   </div>
                   <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "0.75rem", background: "linear-gradient(to top, rgba(0,0,0,0.8), transparent)", pointerEvents: "none" }}>
@@ -112,9 +112,9 @@ export default function HeroSection() {
 
               {/* Card 2 — Location */}
               <div style={{ borderRadius: "4px", overflow: "hidden", border: "1px solid rgba(245,130,10,0.4)", background: "var(--bg-card)" }}>
-                <div style={{ height: "160px", background: "linear-gradient(135deg, #1A0F00, #3D2500)", position: "relative", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <div style={{ height: "160px", background: "linear-gradient(135deg, #1A0F00, #3D2500)", position: "relative", overflow: "hidden" }}>
                   <SafeImage src="/images/land/location-map.jpg" alt="Yard Location" style={{ objectFit: "cover", opacity: 0.5 }} />
-                  <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: "0.5rem" }}>
+                  <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: "0.5rem", pointerEvents: "none" }}>
                     <div style={{ width: "36px", height: "36px", borderRadius: "50%", background: "rgba(245,130,10,0.2)", border: "2px solid var(--orange)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                       <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "var(--orange)" }} />
                     </div>
@@ -133,29 +133,30 @@ export default function HeroSection() {
 
             </div>
 
-            {/* Floating badges */}
-            <div style={{ position: "absolute", top: "-16px", right: "-16px", background: "linear-gradient(135deg, var(--orange), var(--orange-dark))", borderRadius: "4px", padding: "0.85rem 1.1rem", boxShadow: "0 8px 24px rgba(245,130,10,0.4)", textAlign: "center", zIndex: 20 }}>
-              <div style={{ fontFamily: "var(--font-display)", fontSize: "1.6rem", color: "#fff", lineHeight: 1 }}>$450M</div>
-              <div style={{ fontFamily: "var(--font-condensed)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(255,255,255,0.8)" }}>Funding Needed</div>
-            </div>
-
-            <div style={{ position: "absolute", bottom: "-16px", left: "-16px", background: "linear-gradient(135deg, var(--green), var(--green-dark))", borderRadius: "4px", padding: "0.85rem 1.1rem", boxShadow: "0 8px 24px rgba(74,124,47,0.4)", textAlign: "center", zIndex: 20 }}>
+            {/* ── NO FUNDING BADGES — removed $450M floating badge ── */}
+            {/* Replaced with non-monetary stat badges */}
+            <div style={{ position: "absolute", top: "-16px", right: "-16px", background: "linear-gradient(135deg, var(--green), var(--green-dark))", borderRadius: "4px", padding: "0.85rem 1.1rem", boxShadow: "0 8px 24px rgba(74,124,47,0.4)", textAlign: "center", zIndex: 20 }}>
               <div style={{ fontFamily: "var(--font-display)", fontSize: "1.6rem", color: "#fff", lineHeight: 1 }}>49 Ha</div>
               <div style={{ fontFamily: "var(--font-condensed)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(255,255,255,0.8)" }}>Land Acquired</div>
+            </div>
+
+            <div style={{ position: "absolute", bottom: "-16px", left: "-16px", background: "linear-gradient(135deg, var(--orange), var(--orange-dark))", borderRadius: "4px", padding: "0.85rem 1.1rem", boxShadow: "0 8px 24px rgba(245,130,10,0.4)", textAlign: "center", zIndex: 20 }}>
+              <div style={{ fontFamily: "var(--font-display)", fontSize: "1.6rem", color: "#fff", lineHeight: 1 }}>1st</div>
+              <div style={{ fontFamily: "var(--font-condensed)", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(255,255,255,0.8)" }}>In Nigeria</div>
             </div>
 
           </div>
         </div>
 
-        {/* ── STATS ROW ── */}
+        {/* ── STATS ROW — no funding amount ── */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", borderTop: "1px solid var(--border-green)", marginTop: "5rem", animation: "fadeUp 0.7s 0.5s ease forwards", opacity: 0 }}>
           {[
-            { value: "$450M",   label: "Total Investment", suffix: "USD Required" },
-            { value: "49 Ha",   label: "Land Acquired",    suffix: "Akwa Ibom State" },
-            { value: "40 Mths", label: "Build Timeline",   suffix: "To Completion" },
-            { value: "$4–6B",   label: "Per Contract",     suffix: "Avg FPSO Value" },
-            { value: "95",      label: "Oil Blocks",       suffix: "Yet Undeveloped" },
-            { value: "20+",     label: "Contracts",        suffix: "On Standby" },
+            { value: "49 Ha",   label: "Land Acquired",  suffix: "Akwa Ibom State" },
+            { value: "40 Mths", label: "Build Timeline", suffix: "To Completion" },
+            { value: "$4–6B",   label: "Per Contract",   suffix: "Avg FPSO Value" },
+            { value: "95",      label: "Oil Blocks",     suffix: "Yet Undeveloped" },
+            { value: "20+",     label: "Contracts",      suffix: "On Standby" },
+            { value: "1st",     label: "In Nigeria",     suffix: "Fabrication Yard" },
           ].map((stat, i) => (
             <div key={stat.label} style={{ padding: "1.75rem 1.25rem", borderRight: i < 5 ? "1px solid var(--border-green)" : "none", background: i % 2 === 0 ? "transparent" : "rgba(74,124,47,0.03)" }}>
               <div className="stat-value" style={{ fontSize: "clamp(1.8rem, 3vw, 2.2rem)" }}>{stat.value}</div>
