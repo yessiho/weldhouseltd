@@ -35,11 +35,11 @@ export default function InvestorsPage() {
         <div className="container">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "1px", background: "var(--border-accent)", border: "1px solid var(--border-accent)" }}>
             {[
-              { value: "$450M",  label: "Total Funding Needed", sub: "Full project development cost",    highlight: true },
-              { value: "OK",     label: "Partial Funding",       sub: "Part funding is acceptable",      highlight: false },
-              { value: "Hard",   label: "Asset Collateral",      sub: "Lien over completed yard",        highlight: true },
-              { value: "5 Yrs",  label: "Target Payback",        sub: "From commencement of operations", highlight: false },
-              { value: "20+",    label: "Contracts Waiting",     sub: "Averaging US$5B per contract",    highlight: true },
+              { value: "Private", label: "Funding Amount",    sub: "Disclosed to qualified investors only", highlight: true },
+              { value: "OK",      label: "Partial Funding",   sub: "Co-investment is acceptable",          highlight: false },
+              { value: "Hard",    label: "Asset Collateral",  sub: "Lien over completed yard",             highlight: true },
+              { value: "20+",     label: "Contracts Waiting", sub: "Averaging US$5B per contract",         highlight: false },
+              { value: "1st",     label: "In Nigeria",        sub: "No competition exists currently",      highlight: true },
             ].map((s) => (
               <div key={s.label} style={{ padding: "2rem 1.5rem", background: s.highlight ? "rgba(245,130,10,0.06)" : "var(--bg-card)", textAlign: "center" }}>
                 <div className="stat-value" style={{ fontSize: "2.5rem" }}>{s.value}</div>

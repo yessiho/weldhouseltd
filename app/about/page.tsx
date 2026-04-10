@@ -90,7 +90,7 @@ export default function AboutPage() {
             <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(8,15,6,0.7) 0%, transparent 60%)", pointerEvents: "none" }} />
             <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "1rem", pointerEvents: "none" }}>
               <div style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.2rem, 3vw, 2.5rem)", color: "rgba(245,130,10,0.12)", letterSpacing: "0.1em", textAlign: "center" }}>WELDHOUSE FABRICATION YARD</div>
-              <div style={{ fontFamily: "var(--font-condensed)", fontSize: "0.68rem", color: "rgba(255,255,255,0.2)", letterSpacing: "0.2em", textTransform: "uppercase" }}>Add photo → /public/images/about/yard-main.jpg</div>
+              <div style={{ fontFamily: "var(--font-condensed)", fontSize: "0.68rem", color: "rgba(255,255,255,0.2)", letterSpacing: "0.2em", textTransform: "uppercase" }}></div>
             </div>
             <div style={{ position: "absolute", bottom: "1.5rem", left: "1.5rem" }}>
               <span className="badge badge-green">Fabrication Yard · Cross River, Akwa Ibom State</span>
@@ -194,7 +194,6 @@ export default function AboutPage() {
                 { value: "110", label: "Offshore Oil Blocks", sub: "In Nigerian waters" },
                 { value: "95",  label: "Yet To Develop",      sub: "Awaiting fabrication capacity" },
                 { value: "15",  label: "In Production",       sub: "Currently producing" },
-                { value: "$5B", label: "Avg Contract",        sub: "Per development" },
               ].map((stat) => (
                 <div key={stat.label} style={{ background: "var(--bg-card)", border: "1px solid var(--border-green)", padding: "1.5rem", textAlign: "center", borderRadius: "3px" }}>
                   <div className="stat-value" style={{ fontSize: "2.5rem" }}>{stat.value}</div>

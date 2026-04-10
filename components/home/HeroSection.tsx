@@ -153,7 +153,6 @@ export default function HeroSection() {
           {[
             { value: "49 Ha",   label: "Land Acquired",  suffix: "Akwa Ibom State" },
             { value: "40 Mths", label: "Build Timeline", suffix: "To Completion" },
-            { value: "$4–6B",   label: "Per Contract",   suffix: "Avg FPSO Value" },
             { value: "95",      label: "Oil Blocks",     suffix: "Yet Undeveloped" },
             { value: "20+",     label: "Contracts",      suffix: "On Standby" },
             { value: "1st",     label: "In Nigeria",     suffix: "Fabrication Yard" },

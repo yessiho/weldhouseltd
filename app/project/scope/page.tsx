@@ -2,17 +2,15 @@
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { BUDGET_BREAKDOWN } from "@/lib/constants";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = { title: "Project Scope & Schedule" };
 
 export default function ScopePage() {
-  const total = BUDGET_BREAKDOWN.reduce((s, i) => s + i.cost, 0);
-
   return (
     <main style={{ paddingTop: "76px" }}>
 
+      {/* ── BANNER ── */}
       <section style={{ background: "var(--bg-navbar)", borderBottom: "1px solid var(--border-green)", padding: "5rem 0 4rem", position: "relative" }}>
         <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: "linear-gradient(90deg, var(--green), var(--orange), var(--green))" }} />
         <div className="container" style={{ position: "relative", zIndex: 10 }}>
@@ -30,15 +28,15 @@ export default function ScopePage() {
         </div>
       </section>
 
-      {/* ── OVERVIEW STATS ── */}
+      {/* ── OVERVIEW STATS — no USD ── */}
       <section className="section-sm" style={{ background: "var(--bg-secondary)", borderBottom: "1px solid var(--border-green)" }}>
         <div className="container">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "1px", background: "var(--border-green)", border: "1px solid var(--border-green)" }}>
             {[
-              { value: "$450M",  label: "Total Budget",    sub: "Full project cost" },
-              { value: "40",     label: "Months",          sub: "Design to completion" },
-              { value: "3",      label: "Major Phases",    sub: "Engineering, Site, Construction" },
-              { value: "49 Ha",  label: "Site Area",       sub: "Acquired land" },
+              { value: "40",    label: "Months",       sub: "Design to completion" },
+              { value: "3",     label: "Major Phases", sub: "Engineering, Site, Construction" },
+              { value: "49 Ha", label: "Site Area",    sub: "Acquired land" },
+              { value: "8 NM",  label: "Ocean Access", sub: "From Atlantic Ocean" },
             ].map((s, i) => (
               <div key={i} style={{ padding: "1.5rem 1.25rem", background: "var(--bg-card)" }}>
                 <div className="stat-value" style={{ fontSize: "2rem" }}>{s.value}</div>
@@ -50,7 +48,7 @@ export default function ScopePage() {
         </div>
       </section>
 
-      {/* ── PHASE CARDS ── */}
+      {/* ── PHASE CARDS — no USD amounts ── */}
       <section className="section" style={{ background: "var(--bg-primary)" }}>
         <div className="container">
           <div style={{ textAlign: "center", marginBottom: "3rem" }}>
@@ -68,7 +66,6 @@ export default function ScopePage() {
                 no: "01",
                 phase: "Engineering",
                 duration: "14 months",
-                cost: "$17M",
                 color: "var(--orange)",
                 details: [
                   "Full yard design to international oil industry standards",
@@ -81,7 +78,6 @@ export default function ScopePage() {
                 no: "02",
                 phase: "Early Site Works",
                 duration: "8 months",
-                cost: "$117M",
                 color: "var(--gold)",
                 details: [
                   "Site preparation and clearing",
@@ -94,7 +90,6 @@ export default function ScopePage() {
                 no: "03",
                 phase: "Yard Construction",
                 duration: "26 months",
-                cost: "$276M",
                 color: "var(--green-light)",
                 details: [
                   "Main fabrication workshops and bays",
@@ -107,7 +102,6 @@ export default function ScopePage() {
                 no: "04",
                 phase: "Support Activities",
                 duration: "Throughout (40 months)",
-                cost: "$40M",
                 color: "var(--steel-light)",
                 details: [
                   "Community projects — roads, schools, water supply",
@@ -118,15 +112,12 @@ export default function ScopePage() {
               },
             ].map((item) => (
               <div key={item.no} style={{ background: "var(--bg-card)", border: "1px solid var(--border-green)", borderTop: `3px solid ${item.color}`, padding: "1.75rem", borderRadius: "3px" }}>
-                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "1rem", flexWrap: "wrap", gap: "0.5rem" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "1rem", flexWrap: "wrap", gap: "0.5rem", alignItems: "flex-start" }}>
                   <div>
                     <div style={{ fontFamily: "var(--font-display)", fontSize: "2rem", color: item.color, lineHeight: 1 }}>{item.no}</div>
                     <div style={{ fontFamily: "var(--font-display)", fontSize: "1.2rem", color: "var(--text-primary)", letterSpacing: "0.03em" }}>{item.phase}</div>
                   </div>
-                  <div style={{ textAlign: "right" }}>
-                    <div style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", color: "var(--orange)" }}>{item.cost}</div>
-                    <div style={{ fontFamily: "var(--font-condensed)", fontSize: "0.68rem", color: "var(--text-muted)", letterSpacing: "0.1em" }}>{item.duration}</div>
-                  </div>
+                  <span className="badge badge-green">{item.duration}</span>
                 </div>
                 <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0.5rem" }}>
                   {item.details.map((d, i) => (
@@ -141,13 +132,16 @@ export default function ScopePage() {
         </div>
       </section>
 
-      {/* ── BUDGET TABLE ── */}
+      {/* ── SCOPE TABLE — duration only, no costs ── */}
       <section className="section" style={{ background: "var(--bg-secondary)", borderTop: "1px solid var(--border-green)" }}>
         <div className="container">
           <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-            <span className="section-eyebrow">Budget Breakdown</span>
+            <span className="section-eyebrow">Schedule Overview</span>
             <span className="accent-line-center" />
-            <h2 style={{ marginTop: "0.5rem" }}>Use of US$450 Million</h2>
+            <h2 style={{ marginTop: "0.5rem" }}>Project Schedule Summary</h2>
+            <p style={{ maxWidth: "520px", margin: "1rem auto 0", fontSize: "0.95rem" }}>
+              Financial details are available to qualified investors upon request and execution of the appropriate agreements.
+            </p>
           </div>
 
           <div style={{ border: "1px solid var(--border-green)", overflow: "hidden" }}>
@@ -156,28 +150,42 @@ export default function ScopePage() {
                 <tr>
                   <th>#</th>
                   <th>Project Scope</th>
+                  <th>Schedule</th>
                   <th>Duration</th>
-                  <th style={{ textAlign: "right" }}>Cost (US$M)</th>
-                  <th style={{ textAlign: "right" }}>% of Total</th>
                 </tr>
               </thead>
               <tbody>
-                {BUDGET_BREAKDOWN.map((item, i) => (
-                  <tr key={i}>
-                    <td style={{ color: "var(--text-muted)", fontFamily: "var(--font-condensed)" }}>{String(i + 1).padStart(2, "0")}</td>
+                {[
+                  { no: "01", scope: "Engineering",                                    schedule: "Mth-1 to Mth-14",  duration: "14 months" },
+                  { no: "02", scope: "Early Site Works",                               schedule: "Mth-12 to Mth-21", duration: "8 months" },
+                  { no: "03", scope: "Yard Construction",                              schedule: "Mth-14 to Mth-40", duration: "26 months" },
+                  { no: "04", scope: "Community Projects",                             schedule: "Mth-1 to Mth-40",  duration: "40 months" },
+                  { no: "05", scope: "Project Management",                             schedule: "Mth-1 to Mth-40",  duration: "40 months" },
+                  { no: "06", scope: "Consultants, Pre-development & Finance Charges", schedule: "Mth-1 to Mth-40",  duration: "40 months" },
+                  { no: "07", scope: "Project Insurance Policies",                     schedule: "Mth-6 to Mth-40",  duration: "35 months" },
+                ].map((item) => (
+                  <tr key={item.no}>
+                    <td style={{ color: "var(--text-muted)", fontFamily: "var(--font-condensed)" }}>{item.no}</td>
                     <td style={{ color: "var(--text-primary)", fontWeight: 500 }}>{item.scope}</td>
-                    <td style={{ fontFamily: "var(--font-condensed)", fontSize: "0.8rem" }}>{item.duration}</td>
-                    <td style={{ textAlign: "right", fontFamily: "var(--font-display)", fontSize: "1.1rem", color: "var(--orange)" }}>{item.cost.toFixed(2)}</td>
-                    <td style={{ textAlign: "right", color: "var(--text-muted)", fontSize: "0.82rem" }}>{((item.cost / total) * 100).toFixed(1)}%</td>
+                    <td style={{ fontFamily: "var(--font-condensed)", fontSize: "0.8rem" }}>{item.schedule}</td>
+                    <td style={{ fontFamily: "var(--font-condensed)", fontSize: "0.8rem" }}><span className="badge badge-steel">{item.duration}</span></td>
                   </tr>
                 ))}
-                <tr className="total-row">
-                  <td colSpan={3} style={{ fontFamily: "var(--font-condensed)", fontWeight: 700, fontSize: "0.85rem", letterSpacing: "0.1em", textTransform: "uppercase" }}>Total Project Cost</td>
-                  <td style={{ textAlign: "right", fontFamily: "var(--font-display)", fontSize: "1.4rem" }}>{total.toFixed(2)}</td>
-                  <td style={{ textAlign: "right" }}>100%</td>
+                <tr style={{ background: "var(--bg-navbar)" }}>
+                  <td colSpan={2} style={{ fontFamily: "var(--font-condensed)", fontWeight: 700, fontSize: "0.85rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--orange)" }}>Total Project Duration</td>
+                  <td style={{ fontFamily: "var(--font-condensed)", fontSize: "0.8rem", color: "var(--text-muted)" }}>Mth-1 to Mth-40</td>
+                  <td><span className="badge badge-orange">40 months</span></td>
                 </tr>
               </tbody>
             </table>
+          </div>
+
+          {/* Confidentiality note */}
+          <div style={{ marginTop: "2rem", background: "var(--bg-card)", border: "1px solid rgba(245,130,10,0.3)", padding: "1.5rem", borderRadius: "3px", display: "flex", gap: "1rem", alignItems: "flex-start" }}>
+            <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "var(--orange)", flexShrink: 0, marginTop: "6px" }} />
+            <p style={{ fontSize: "0.87rem", color: "var(--text-muted)", margin: 0, lineHeight: 1.7 }}>
+              <strong style={{ color: "var(--orange)" }}>Financial Details — Private:</strong> Project cost breakdown and funding requirements are available exclusively to qualified investors upon request and execution of the appropriate confidentiality agreements. Please <Link href="/contact" style={{ color: "var(--green-light)", textDecoration: "underline" }}>contact us</Link> to request investor documentation.
+            </p>
           </div>
         </div>
       </section>

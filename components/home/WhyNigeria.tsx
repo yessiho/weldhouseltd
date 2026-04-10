@@ -41,7 +41,6 @@ export default function WhyNigeria() {
             <Link href="/project" className="btn-primary">Learn About the Project <ArrowRight size={16} /></Link>
           </div>
 
-          {/* Right side — market opportunity cards without client names */}
           <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
 
             <div style={{ background: "var(--bg-card)", border: "1px solid var(--border-green)", borderLeft: "4px solid var(--orange)", padding: "1.75rem" }}>
@@ -52,7 +51,7 @@ export default function WhyNigeria() {
                 </div>
                 <span className="badge badge-orange">On Hold</span>
               </div>
-              <div className="stat-value" style={{ fontSize: "2rem", marginBottom: "0.5rem" }}>US$10 Billion</div>
+              <div style={{ fontFamily: "var(--font-condensed)", fontSize: "0.82rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--orange)", marginBottom: "0.5rem" }}>Multi-Billion Dollar Opportunity</div>
               <p style={{ fontSize: "0.82rem", color: "var(--text-muted)", margin: 0, lineHeight: 1.6 }}>A major offshore oilfield development is on hold pending availability of an in-country fabrication yard with sufficient capacity to execute the project.</p>
             </div>
 
@@ -60,19 +59,19 @@ export default function WhyNigeria() {
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "0.75rem", flexWrap: "wrap", gap: "0.5rem" }}>
                 <div>
                   <div style={{ fontFamily: "var(--font-display)", fontSize: "1.2rem", color: "var(--text-primary)", letterSpacing: "0.05em" }}>Major FPSO Project</div>
-                  <div style={{ fontFamily: "var(--font-condensed)", fontSize: "0.78rem", color: "var(--text-muted)", letterSpacing: "0.1em", textTransform: "uppercase" }}>Floating Production & Storage</div>
+                  <div style={{ fontFamily: "var(--font-condensed)", fontSize: "0.78rem", color: "var(--text-muted)", letterSpacing: "0.1em", textTransform: "uppercase" }}>Floating Production &amp; Storage</div>
                 </div>
                 <span className="badge badge-orange">Tender Cancelled ×3</span>
               </div>
-              <div className="stat-value" style={{ fontSize: "2rem", marginBottom: "0.5rem" }}>US$4–6 Billion</div>
+              <div style={{ fontFamily: "var(--font-condensed)", fontSize: "0.82rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--orange)", marginBottom: "0.5rem" }}>Multi-Billion Dollar Opportunity</div>
               <p style={{ fontSize: "0.82rem", color: "var(--text-muted)", margin: 0, lineHeight: 1.6 }}>A major FPSO fabrication project has been tendered three times and cancelled each time — solely due to the absence of a capable in-country fabrication yard.</p>
             </div>
 
             <div style={{ background: "linear-gradient(135deg, var(--green-dark), var(--green))", padding: "1.75rem", textAlign: "center", border: "1px solid var(--green-light)", position: "relative", overflow: "hidden" }}>
               <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: "linear-gradient(90deg, var(--orange), var(--orange-light), var(--orange))" }} />
-              <div style={{ fontFamily: "var(--font-condensed)", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.7)", marginBottom: "0.5rem" }}>Combined Immediate Opportunity</div>
-              <div style={{ fontFamily: "var(--font-display)", fontSize: "3.5rem", color: "#fff", lineHeight: 1 }}>$14–16B</div>
-              <div style={{ fontFamily: "var(--font-condensed)", fontSize: "0.75rem", color: "rgba(255,255,255,0.8)", marginTop: "0.35rem", letterSpacing: "0.1em" }}>In Contracts Awaiting This Yard</div>
+              <div style={{ fontFamily: "var(--font-condensed)", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.7)", marginBottom: "0.5rem" }}>Immediate Market Opportunity</div>
+              <div style={{ fontFamily: "var(--font-display)", fontSize: "2rem", color: "#fff", lineHeight: 1.2 }}>Billions in Contracts</div>
+              <div style={{ fontFamily: "var(--font-condensed)", fontSize: "0.75rem", color: "rgba(255,255,255,0.8)", marginTop: "0.35rem", letterSpacing: "0.1em" }}>Awaiting This Yard — Exclusively for Investors</div>
             </div>
 
           </div>

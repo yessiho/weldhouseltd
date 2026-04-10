@@ -2,14 +2,11 @@
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { BUDGET_BREAKDOWN } from "@/lib/constants";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = { title: "Project Overview" };
 
 export default function ProjectPage() {
-  const total = BUDGET_BREAKDOWN.reduce((s, i) => s + i.cost, 0);
-
   return (
     <main style={{ paddingTop: "76px" }}>
 
@@ -22,7 +19,7 @@ export default function ProjectPage() {
           <span className="accent-line" />
           <h1 style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)", marginBottom: "1.25rem" }}>Project Overview</h1>
           <p style={{ maxWidth: "600px", fontSize: "1.05rem", color: "var(--text-secondary)", lineHeight: 1.8 }}>
-            A US$450 Million, 40-month project to design and construct Nigeria&apos;s first modern large-scale high tonnage Oil &amp; Gas Fabrication Yard on 49 Hectares of acquired land in Akwa Ibom State.
+            A 40-month project to design and construct Nigeria&apos;s first modern large-scale high tonnage Oil &amp; Gas Fabrication Yard on 49 Hectares of acquired land in Akwa Ibom State.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem", marginTop: "2.5rem" }}>
             <Link href="/project/scope" className="btn-primary">View Full Scope <ArrowRight size={16} /></Link>
@@ -31,17 +28,16 @@ export default function ProjectPage() {
         </div>
       </section>
 
-      {/* ── KEY NUMBERS ── */}
+      {/* ── KEY NUMBERS — no USD ── */}
       <section className="section-sm" style={{ background: "var(--bg-secondary)", borderBottom: "1px solid var(--border-green)" }}>
         <div className="container">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "1px", background: "var(--border-green)", border: "1px solid var(--border-green)" }}>
             {[
-              { value: "$450M",  label: "Total Cost",      sub: "Full project budget" },
-              { value: "40",     label: "Months",          sub: "Design to completion" },
-              { value: "49 Ha",  label: "Land Area",       sub: "Acquired & surveyed" },
-              { value: "700m",   label: "Site Dimension",  sub: "700m × 700m plot" },
-              { value: "8 NM",   label: "Ocean Access",    sub: "From Atlantic Ocean" },
-              { value: "2013",   label: "Land Survey",     sub: "Plan RS/AK/1/2013/45" },
+              { value: "40",   label: "Months",         sub: "Design to completion" },
+              { value: "49 Ha",label: "Land Area",       sub: "Acquired & surveyed" },
+              { value: "700m", label: "Site Dimension",  sub: "700m × 700m plot" },
+              { value: "8 NM", label: "Ocean Access",    sub: "From Atlantic Ocean" },
+              { value: "2013", label: "Land Survey",     sub: "Plan RS/AK/1/2013/45" },
             ].map((s, i) => (
               <div key={i} style={{ padding: "1.5rem 1.25rem", background: "var(--bg-card)" }}>
                 <div className="stat-value" style={{ fontSize: "2rem" }}>{s.value}</div>
@@ -69,7 +65,7 @@ export default function ProjectPage() {
                 Multiple major Nigerian oilfield developments have been put on hold pending availability of a modern fabrication yard in-country. The WeldHouse Fabrication Yard will be the solution that unlocks these projects.
               </p>
               <p style={{ fontSize: "0.95rem" }}>
-                With 1,500+ deep-water oilfields available in Nigeria and other African countries, averaging US$5 billion per contract, the WeldHouse Fabrication Yard is positioned to capture decades of sustained work.
+                With over 1,500 deep-water oilfields available in Nigeria and other African countries, the WeldHouse Fabrication Yard is positioned to capture decades of sustained fabrication work at internationally competitive contract values.
               </p>
             </div>
 
@@ -94,45 +90,18 @@ export default function ProjectPage() {
         </div>
       </section>
 
-      {/* ── BUDGET TABLE ── */}
-      <section className="section" style={{ background: "var(--bg-secondary)", borderTop: "1px solid var(--border-green)" }}>
+      {/* ── CONFIDENTIAL FINANCIALS NOTE — replaces budget table ── */}
+      <section className="section-sm" style={{ background: "var(--bg-secondary)", borderTop: "1px solid var(--border-green)" }}>
         <div className="container">
-          <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-            <span className="section-eyebrow">Budget Breakdown</span>
-            <span className="accent-line-center" />
-            <h2 style={{ marginTop: "0.5rem" }}>Use of US$450 Million</h2>
-          </div>
-
-          <div style={{ border: "1px solid var(--border-green)", overflow: "hidden" }}>
-            <table className="wh-table">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Project Scope</th>
-                  <th>Schedule</th>
-                  <th>Duration</th>
-                  <th style={{ textAlign: "right" }}>Cost (US$M)</th>
-                  <th style={{ textAlign: "right" }}>% of Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                {BUDGET_BREAKDOWN.map((item, i) => (
-                  <tr key={i}>
-                    <td style={{ color: "var(--text-muted)", fontFamily: "var(--font-condensed)" }}>{String(i + 1).padStart(2, "0")}</td>
-                    <td style={{ color: "var(--text-primary)", fontWeight: 500 }}>{item.scope}</td>
-                    <td style={{ fontFamily: "var(--font-condensed)", fontSize: "0.8rem" }}>{item.schedule}</td>
-                    <td style={{ fontFamily: "var(--font-condensed)", fontSize: "0.8rem" }}>{item.duration}</td>
-                    <td style={{ textAlign: "right", fontFamily: "var(--font-display)", fontSize: "1.1rem", color: "var(--orange)" }}>{item.cost.toFixed(2)}</td>
-                    <td style={{ textAlign: "right", color: "var(--text-muted)", fontSize: "0.82rem" }}>{((item.cost / total) * 100).toFixed(1)}%</td>
-                  </tr>
-                ))}
-                <tr className="total-row">
-                  <td colSpan={4} style={{ fontFamily: "var(--font-condensed)", fontWeight: 700, fontSize: "0.85rem", letterSpacing: "0.1em", textTransform: "uppercase" }}>Total Project Cost</td>
-                  <td style={{ textAlign: "right", fontFamily: "var(--font-display)", fontSize: "1.4rem" }}>{total.toFixed(2)}</td>
-                  <td style={{ textAlign: "right" }}>100%</td>
-                </tr>
-              </tbody>
-            </table>
+          <div style={{ maxWidth: "760px", margin: "0 auto", background: "var(--bg-card)", border: "1px solid rgba(245,130,10,0.3)", borderTop: "3px solid var(--orange)", padding: "2.5rem", borderRadius: "3px", textAlign: "center" }}>
+            <div style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", color: "var(--orange)", marginBottom: "1rem", letterSpacing: "0.04em" }}>Financial Information — Private</div>
+            <p style={{ fontSize: "0.93rem", color: "var(--text-secondary)", lineHeight: 1.8, marginBottom: "1.5rem" }}>
+              Project cost breakdown, funding requirements and financial projections are available exclusively to qualified investors upon request. A confidentiality agreement is required prior to disclosure.
+            </p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem", justifyContent: "center" }}>
+              <Link href="/investors" className="btn-primary">Investor Information <ArrowRight size={16} /></Link>
+              <Link href="/contact" className="btn-secondary">Request Details <ArrowRight size={16} /></Link>
+            </div>
           </div>
         </div>
       </section>
@@ -148,7 +117,7 @@ export default function ProjectPage() {
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "1.5rem" }}>
             {[
-              { href: "/project/scope",    title: "Scope & Schedule",  desc: "Full project scope, phase breakdown and budget across all 40 months." },
+              { href: "/project/scope",    title: "Scope & Schedule",  desc: "Full project scope and phase breakdown across all 40 months." },
               { href: "/project/design",   title: "Design & QA Plan",  desc: "Yard design approach, Third-Party Approver process and IOC endorsement." },
               { href: "/project/location", title: "Site Location",      desc: "Detailed site location, survey plan and GPS coordinates on Cross River." },
             ].map((item) => (

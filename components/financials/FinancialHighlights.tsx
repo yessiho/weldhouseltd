@@ -22,7 +22,6 @@ export default function FinancialHighlights() {
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1px", background: "var(--border-green)", border: "1px solid var(--border-green)" }}>
         {[
-          { value: "$1.40B", label: "NPV" },
           { value: "54.8%", label: "IRR" },
           { value: "5 Years", label: "Payback" },
         ].map((s) => (

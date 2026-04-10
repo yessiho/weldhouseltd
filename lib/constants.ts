@@ -14,7 +14,7 @@ export const COMPANY = {
 };
 
 export const PROJECT = {
-  totalFunding: "US$ 450 Million",
+  totalFunding: "Subject to Proof of Funds",
   landSize: "49 Hectares (122 Acres)",
   duration: "40 Months",
   location: "East Bank of Cross River, 8 nautical miles upstream from Atlantic Ocean, Akwa Ibom State",
@@ -43,27 +43,26 @@ export const NAV_LINKS = [
 ];
 
 export const KEY_STATS = [
-  { label: "Total Funding Required", value: "$450M",     suffix: "USD" },
-  { label: "Land Acquired",          value: "49 Ha",     suffix: "122 Acres" },
-  { label: "Project Duration",       value: "40 Months", suffix: "Timeline" },
+  { label: "Land Acquired",   value: "49 Ha",     suffix: "122 Acres" },
+  { label: "Project Duration", value: "40 Months", suffix: "Timeline" },
 ];
 
 export const BUDGET_BREAKDOWN = [
-  { scope: "Engineering",                                    schedule: "Mth-1 to Mth-14",  duration: "14 months", cost: 17 },
-  { scope: "Early Site Works",                               schedule: "Mth-12 to Mth-21", duration: "8 months",  cost: 117 },
-  { scope: "Yard Construction",                              schedule: "Mth-14 to Mth-40", duration: "26 months", cost: 276 },
-  { scope: "Community Projects",                             schedule: "Mth-1 to Mth-40",  duration: "40 months", cost: 4 },
-  { scope: "Project Management",                             schedule: "Mth-1 to Mth-40",  duration: "40 months", cost: 6 },
-  { scope: "Consultants, Pre-development & Finance Charges", schedule: "Mth-1 to Mth-40",  duration: "40 months", cost: 26 },
-  { scope: "Project Insurance Policies",                     schedule: "Mth-6 to Mth-40",  duration: "35 months", cost: 4 },
+  { scope: "Engineering",                                    schedule: "Mth-1 to Mth-14",  duration: "14 months" },
+  { scope: "Early Site Works",                               schedule: "Mth-12 to Mth-21", duration: "8 months" },
+  { scope: "Yard Construction",                              schedule: "Mth-14 to Mth-40", duration: "26 months" },
+  { scope: "Community Projects",                             schedule: "Mth-1 to Mth-40",  duration: "40 months" },
+  { scope: "Project Management",                             schedule: "Mth-1 to Mth-40",  duration: "40 months" },
+  { scope: "Consultants, Pre-development & Finance Charges", schedule: "Mth-1 to Mth-40",  duration: "40 months" },
+  { scope: "Project Insurance Policies",                     schedule: "Mth-6 to Mth-40",  duration: "35 months" },
 ];
 
 export const REVENUE_PROJECTIONS = [
-  { year: "Year 1–4", label: "Yard Building",       revenue: 0 },
-  { year: "Year 5",   label: "1st FPSO Contract",   revenue: 2386 },
-  { year: "Year 6",   label: "2nd FPSO Contract",   revenue: 2766 },
-  { year: "Year 7",   label: "3rd FPSO Contract",   revenue: 3271 },
-  { year: "Year 8",   label: "4th O&G Contract",    revenue: 3011 },
-  { year: "Year 9",   label: "5th O&G Contract",    revenue: 2001 },
-  { year: "Year 10",  label: "6th O&G Contract",    revenue: 2542 },
+  { year: "Year 1–4", label: "Yard Building",     revenue: 0 },
+  { year: "Year 5",   label: "1st FPSO Contract", revenue: 1 },
+  { year: "Year 6",   label: "2nd FPSO Contract", revenue: 1 },
+  { year: "Year 7",   label: "3rd FPSO Contract", revenue: 1 },
+  { year: "Year 8",   label: "4th O&G Contract",  revenue: 1 },
+  { year: "Year 9",   label: "5th O&G Contract",  revenue: 1 },
+  { year: "Year 10",  label: "6th O&G Contract",  revenue: 1 },
 ];

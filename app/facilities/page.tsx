@@ -28,7 +28,7 @@ export default function FacilitiesPage() {
             {[
               { value: "6+", label: "Facility Types", sub: "Full fabrication capability" },
               { value: "2", label: "Simultaneous Jobs", sub: "New build + repairs" },
-              { value: "$4–6B", label: "Per Contract", sub: "Average FPSO value" },
+              // { value: "$4–6B", label: "Per Contract", sub: "Average FPSO value" },
               { value: "20+", label: "On Standby", sub: "Contracts waiting" },
             ].map((s, i) => (
               <div key={i} style={{ padding: "1.5rem 1.25rem", background: "var(--bg-card)" }}>
