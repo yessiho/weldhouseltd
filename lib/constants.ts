@@ -47,15 +47,15 @@ export const KEY_STATS = [
   { label: "Project Duration", value: "40 Months", suffix: "Timeline" },
 ];
 
-export const BUDGET_BREAKDOWN = [
-  { scope: "Engineering",                                    schedule: "Mth-1 to Mth-14",  duration: "14 months" },
-  { scope: "Early Site Works",                               schedule: "Mth-12 to Mth-21", duration: "8 months" },
-  { scope: "Yard Construction",                              schedule: "Mth-14 to Mth-40", duration: "26 months" },
-  { scope: "Community Projects",                             schedule: "Mth-1 to Mth-40",  duration: "40 months" },
-  { scope: "Project Management",                             schedule: "Mth-1 to Mth-40",  duration: "40 months" },
-  { scope: "Consultants, Pre-development & Finance Charges", schedule: "Mth-1 to Mth-40",  duration: "40 months" },
-  { scope: "Project Insurance Policies",                     schedule: "Mth-6 to Mth-40",  duration: "35 months" },
-];
+// export const BUDGET_BREAKDOWN = [
+//   { scope: "Engineering",                                    schedule: "Mth-1 to Mth-14",  duration: "14 months" },
+//   { scope: "Early Site Works",                               schedule: "Mth-12 to Mth-21", duration: "8 months" },
+//   { scope: "Yard Construction",                              schedule: "Mth-14 to Mth-40", duration: "26 months" },
+//   { scope: "Community Projects",                             schedule: "Mth-1 to Mth-40",  duration: "40 months" },
+//   { scope: "Project Management",                             schedule: "Mth-1 to Mth-40",  duration: "40 months" },
+//   { scope: "Consultants, Pre-development & Finance Charges", schedule: "Mth-1 to Mth-40",  duration: "40 months" },
+//   { scope: "Project Insurance Policies",                     schedule: "Mth-6 to Mth-40",  duration: "35 months" },
+// ];
 
 export const REVENUE_PROJECTIONS = [
   { year: "Year 1–4", label: "Yard Building",     revenue: 0 },
