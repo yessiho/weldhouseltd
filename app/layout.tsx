@@ -30,13 +30,13 @@ export const metadata: Metadata = {
     siteName: "WeldHouse Limited",
     title: "WeldHouse Limited | Nigeria's First Modern Oil & Gas Fabrication Yard",
     description:
-      "Developing Nigeria's first modern high tonnage Oil & Gas Fabrication Yard. US$450M project backed by Deloitte financial model with NPV of US$1.4B.",
+      "Developing Nigeria's first modern high tonnage Oil & Gas Fabrication Yard — enabling full in-country compliance with the Nigerian Content Law.",
   },
   twitter: {
     card: "summary_large_image",
     title: "WeldHouse Limited | Nigeria's First Modern Oil & Gas Fabrication Yard",
     description:
-      "Developing Nigeria's first modern high tonnage Oil & Gas Fabrication Yard. US$450M project backed by Deloitte financial model with NPV of US$1.4B.",
+      "Developing Nigeria's first modern high tonnage Oil & Gas Fabrication Yard — enabling full in-country compliance with the Nigerian Content Law.",
   },
   robots: {
     index: true,

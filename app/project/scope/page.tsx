@@ -144,7 +144,7 @@ export default function ScopePage() {
             </p>
           </div>
 
-          <div style={{ border: "1px solid var(--border-green)", overflow: "hidden" }}>
+          {/* <div style={{ border: "1px solid var(--border-green)", overflow: "hidden" }}>
             <table className="wh-table">
               <thead>
                 <tr>
@@ -178,7 +178,7 @@ export default function ScopePage() {
                 </tr>
               </tbody>
             </table>
-          </div>
+          </div> */}
 
           {/* Confidentiality note */}
           <div style={{ marginTop: "2rem", background: "var(--bg-card)", border: "1px solid rgba(245,130,10,0.3)", padding: "1.5rem", borderRadius: "3px", display: "flex", gap: "1rem", alignItems: "flex-start" }}>

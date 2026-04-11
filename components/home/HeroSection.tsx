@@ -153,9 +153,10 @@ export default function HeroSection() {
           {[
             { value: "49 Ha",   label: "Land Acquired",  suffix: "Akwa Ibom State" },
             { value: "40 Mths", label: "Build Timeline", suffix: "To Completion" },
-            { value: "95",      label: "Oil Blocks",     suffix: "Yet Undeveloped" },
             { value: "20+",     label: "Contracts",      suffix: "On Standby" },
+            { value: "95",      label: "Oil Blocks",     suffix: "Yet Undeveloped" },
             { value: "1st",     label: "In Nigeria",     suffix: "Fabrication Yard" },
+            { value: "8 NM",    label: "Ocean Access",   suffix: "From Atlantic" },
           ].map((stat, i) => (
             <div key={stat.label} style={{ padding: "1.75rem 1.25rem", borderRight: i < 5 ? "1px solid var(--border-green)" : "none", background: i % 2 === 0 ? "transparent" : "rgba(74,124,47,0.03)" }}>
               <div className="stat-value" style={{ fontSize: "clamp(1.8rem, 3vw, 2.2rem)" }}>{stat.value}</div>
