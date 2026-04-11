@@ -36,3 +36,12 @@
 //     </div>
 //   );
 // }
+
+export default function FundingTable() {
+  return (
+    <div>
+      <h2>Funding Table</h2>
+      <p>Coming soon...</p>
+    </div>
+  );
+}
